@@ -40,7 +40,7 @@ export default function Home() {
               href="/home"
               className="hover:text-gold-500 transition-colors  text-white"
             >
-              Home
+              Home1
             </Link>
             <Link
               href="/mint"

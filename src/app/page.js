@@ -1,20 +1,17 @@
 "use client";
 import Link from "next/link";
-import { FaSearch, FaChevronRight } from "react-icons/fa";
 import { useState } from "react";
-import SuggestionIcons from "./components/SuggestionIcons";
 import Image from "next/image";
 import { Button } from "antd";
 
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Add search functionality here
-    console.log("Searching for:", searchTerm);
-  };
+
+  const [isHovere, setIsHovere] = useState(false);
+  const [isHoverede, setIsHoverede] = useState(false);
+  const [isHoveredd, setIsHoveredd] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className=" bg-black height-1800">
@@ -39,24 +36,56 @@ export default function Home() {
             <Link
               href="/home"
               className="hover:text-gold-500 transition-colors  text-white"
+              style={{
+                color: 'white',
+                marginLeft: '20px',
+                fontWeight: 'bold',
+                textDecoration: isHovere ? 'underline' : 'none', // Apply underline when hovered
+              }}
+              onMouseEnter={() => setIsHovere(true)}  // When mouse enters, apply underline
+              onMouseLeave={() => setIsHovere(false)} // When mouse leaves, remove underline
             >
-              Home1
+              Home
             </Link>
             <Link
               href="/mint"
-              className="hover:text-gold-500 transition-colors text-white"
-            >
+              className="text-gold-500 transition-colors text-white hover::underlined"
+              style={{
+                color: 'white',
+                marginLeft: '20px',
+                fontWeight: 'bold',
+                textDecoration: isHoveredd ? 'underline' : 'none', // Apply underline when hovered
+              }}
+              onMouseEnter={() => setIsHoveredd(true)}  // When mouse enters, apply underline
+              onMouseLeave={() => setIsHoveredd(false)} // When mouse leaves, remove underline
+           >
               Mint
             </Link>
             <Link
               href="/stacking"
               className="hover:text-gold-500 transition-colors  text-white"
+              style={{
+                color: 'white',
+                marginLeft: '20px',
+                fontWeight: 'bold',
+                textDecoration: isHoverede ? ' underline' :'space' // Apply underline when hovered
+              }}
+              onMouseEnter={() => setIsHoverede(true)}  // When mouse enters, apply underline
+              onMouseLeave={() => setIsHoverede(false)} // When mouse leaves, remove underline
             >
               Staking
             </Link>
             <Link
               href="/Account"
               className="hover:text-gold-500 transition-colors  text-white"
+              style={{
+                color: 'white',
+                marginLeft: '20px',
+                fontWeight: 'bold',
+                textDecoration: isHovered ? 'underline' : 'none', // Apply underline when hovered
+              }}
+              onMouseEnter={() => setIsHovered(true)}  // When mouse enters, apply underline
+              onMouseLeave={() => setIsHovered(false)} // When mouse leaves, remove underline
             >
               Account
             </Link>

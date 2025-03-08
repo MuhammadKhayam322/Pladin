@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { Card } from "antd";
 import Image from "next/image";
 import { Button } from "antd";
-
-
+import CardComponent from "../app/CardComponent/page";
 export default function Home() {
 
 
@@ -14,7 +14,7 @@ export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className=" bg-black height-1800">
+    <div style={{backgroundColor:"rgba(0, 0, 10, 1)"}}>
       <div className="min-h-screen relative overflow-hidden ">
       <link
             href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
@@ -120,6 +120,50 @@ export default function Home() {
        DISCOVER THE LATEST GEMS </h1>
        <p className=" text-white ml-5 font-small">Explore the Freshest Additions to Our Growing Collection of Unique NFTs. Each Piece Tells a Story.</p>
     </div>
+   
+      
+    <div className="flex gap-8 mt-10 justify-space-between h-496">
+    <div>
+      <CardComponent
+        cardImage="/cardpic.png" // Example image
+        date="10/05/2024" // Example date
+        tag="#gaming" // Example tag
+        buttonText1="1PAL" // First button text
+        buttonText2="BUY NFT" // Second button text
+      />
+    </div>
+
+    <div>
+      <CardComponent
+        cardImage="/cardpic.png" // Example image
+        date="10/05/2024" // Example date
+        tag="#gaming" // Example tag
+        buttonText1="1PAL" // First button text
+        buttonText2="BUY NFT" // Second button text
+      />
+    </div>
+
+    <div>
+      <CardComponent
+        cardImage="/cardpic.png" // Example image
+        date="10/05/2024" // Example date
+        tag="#gaming" // Example tag
+        buttonText1="1PAL" // First button text
+        buttonText2="BUY NFT" // Second button text
+      />
+    </div>
+
+    <div>
+      <CardComponent
+        cardImage="/cardpic.png" // Example image
+        date="10/05/2024" // Example date
+        tag="#gaming" // Example tag
+        buttonText1="1PAL" // First button text
+        buttonText2="BUY NFT" // Second button text
+      />
+    </div>
+    </div>
+  
       </div>
       
     </div>

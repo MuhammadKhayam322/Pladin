@@ -1,240 +1,124 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Card } from "antd";
-import Image from "next/image";
 import { Button } from "antd";
+import Image from "next/image";
 import CardComponent from "../app/CardComponent/page";
 
 export default function Home() {
-  const [isHovere, setIsHovere] = useState(false);
-  const [isHoverede, setIsHoverede] = useState(false);
-  const [isHoveredd, setIsHoveredd] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
 
   return (
-    <div style={{ backgroundColor: "rgba(0, 0, 10, 1)" }}>
-      <div className="min-h-screen relative overflow-hidden">
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        {/* Navigation Bar */}
-        <div className="flex gap-8 bg-black justify-center items-center relative z-20 h-32 sm:h-24 md:h-32 lg:h-40 xl:h-40">
-          <Link href="/">
-            <Image
-              src="/PALADINS.png"
-              alt="Luxury Vacation Logo"
-              width={77}
-              height={22}
-              className="cursor-pointer ml-5"
-            />
-          </Link>
-          <div className="hidden sm:hidden md:flex lg:flex xl:flex gap-8 bg-black  absolute">
+    <div className="bg-[#00000A] min-h-screen">
+      {/* Navigation Bar */}
+      <div className="flex justify-between items-center bg-black px-5 py-6 sm:py-4 md:py-6 lg:py-8 xl:py-10 relative z-20">
+        <Link href="/">
+          <Image src="/PALADINS.png" alt="Logo" width={77} height={22} className="cursor-pointer" />
+        </Link>
+        <div className=" md:flex justify-between gap-8 items-center bg-black px-5 py-6 sm:py-4 md:py-6 lg:py-8 xl:py-10 relativ">
+          {[
+            { name: "Home", path: "/home" },
+            { name: "Mint", path: "/mint" },
+            { name: "Staking", path: "/stacking" },
+            { name: "Account", path: "/Account" },
+          ].map((link) => (
             <Link
-              href="/home"
-              className="hover:text-gold-500 transition-colors  text-white"
-              style={{
-                color: 'white',
-                marginLeft: '20px',
-                fontWeight: 'bold',
-                textDecoration: isHovere ? 'underline' : 'none', // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHovere(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHovere(false)} // When mouse leaves, remove underline
+              key={link.name}
+              href={link.path}
+              className="text-white font-bold transition-colors"
+              style={{ textDecoration: hoveredLink === link.name ? "underline" : "none" }}
+              onMouseEnter={() => setHoveredLink(link.name)}
+              onMouseLeave={() => setHoveredLink(null)}
             >
-              Home
+              {link.name}
             </Link>
-            <Link
-              href="/mint"
-              className="text-gold-500 transition-colors text-white hover::underlined"
-              style={{
-                color: 'white',
-                marginLeft: '20px',
-                fontWeight: 'bold',
-                textDecoration: isHoveredd ? 'underline' : 'none', // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHoveredd(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHoveredd(false)} // When mouse leaves, remove underline
-            >
-              Mint
-            </Link>
-            <Link
-              href="/stacking"
-              className="hover:text-gold-500 transition-colors  text-white"
-              style={{
-                color: 'white',
-                marginLeft: '20px',
-                fontWeight: 'bold',
-                textDecoration: isHoverede ? ' underline' :'none' // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHoverede(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHoverede(false)} // When mouse leaves, remove underline
-            >
-              Staking
-            </Link>
-            <Link
-              href="/Account"
-              className="hover:text-gold-500 transition-colors  text-white"
-              style={{
-                color: 'white',
-                marginLeft: '20px',
-                fontWeight: 'bold',
-                textDecoration: isHovered ? 'underline' : '' // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHovered(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHovered(false)} // When mouse leaves, remove underline
-            >
-              Account
-            </Link>
-          </div>
-          <div className="ml-auto">
-            <Button type="text" className="text-white mr-5 " style={{ backgroundColor: "gray" }}><Image src="/wallet.png" alt="shape" width={15} height={15} /> My 404 Wallet</Button>
-          </div>
-          <div className="block sm:block md:hidden lg:hidden xl:hidden absolute right-5 top-5">
-            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-              Menu
-            </button>
-          </div>
+          ))}
         </div>
-        <div className="block sm:block md:hidden lg:hidden xl:hidden">
-          <div className="bg-gray-500 p-5">
-            <Link
-              href="/home"
-              className="hover:text-gold-500 transition-colors  text-white block"
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                textDecoration: isHovere ? 'underline' : 'none', // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHovere(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHovere(false)} // When mouse leaves, remove underline
-            >
-              Home
-            </Link>
-            <Link
-              href="/mint"
-              className="text-gold-500 transition-colors text-white hover::underlined block"
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                textDecoration: isHoveredd ? 'underline' : 'none', // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHoveredd(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHoveredd(false)} // When mouse leaves, remove underline
-            >
-              Mint
-            </Link>
-            <Link
-              href="/stacking"
-              className="hover:text-gold-500 transition-colors  text-white block"
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                textDecoration: isHoverede ? ' underline' :'none' // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHoverede(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHoverede(false)} // When mouse leaves, remove underline
-            >
-              Staking
-            </Link>
-            <Link
-              href="/Account"
-              className="hover:text-gold-500 transition-colors  text-white block"
-              style={{
-                color: 'white',
-                fontWeight: 'bold',
-                textDecoration: isHovered ? 'underline' : '' // Apply underline when hovered
-              }}
-              onMouseEnter={() => setIsHovered(true)}  // When mouse enters, apply underline
-              onMouseLeave={() => setIsHovered(false)} // When mouse leaves, remove underline
-            >
-              Account
-            </Link>
-          </div>
-        </div>
-        <div
-          style={{
-            backgroundImage: "url('bgy.jpeg')",
-            width: "100%",
-            height: "420px",
-            backgroundSize: "cover",
-            display: "flex"
-          }}
-        >
-          <div className="m-auto sm:ml-5 md:ml-10 lg:ml-20 xl:ml-20">
-            <Image src="/head.png" alt="head" className=" mb-20" width={760} height={353} />
-          </div>
-          <div>
-            <Image src="/shape.png" alt="shape" className=" py-10 ml-5 sm:ml-10 md:ml-20 lg:ml-30 xl:ml-30" width={560} height={353} />
-          </div>
-          <Button style={{ marginTop: "320px", position: "absolute", marginLeft: "244px", backgroundColor: 'green', color: 'white' }} type="primary">Mint Your ERC404</Button>
-          <Button style={{ marginTop: "320px", position: "absolute", marginLeft: "90px", backgroundColor: "gray" }} type="text">How To Mint?</Button>
-        </div>
-        <div>
-          <h1
-            className="text-white ml-5 mt-20 font-extrabold w-[400px] sm:w-full md:w-full lg:w-full xl:w-full"
-          >
-            DISCOVER THE LATEST GEMS
-          </h1>
-          <p style={{ width: "100%", fontSize: "16px" }}>
-            Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! This innovative technology allows you to co-own unique digital collectibles with others. Imagine owning a fraction of a famous CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
-          </p>
-        </div>
+        <Button type="text" className="text-white bg-gray-700 px-4 py-2 rounded-md flex items-center">
+          <Image src="/wallet.png" alt="Wallet" width={15} height={15} className="mr-2" />
+          My 404 Wallet
+        </Button>
+      </div>
 
-        <div className="flex flex-row gap-8 mt-10 justify-space-between h-496 sm:flex-col md:flex-row lg:flex-row xl:flex-row">
-          <div className="w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3">
-            <CardComponent
-              cardImage="/cardpic.png" // Example image
-              date="10/05/2024" // Example date
-              tag="#gaming" // Example tag
-              buttonText1="1PAL" // First button text
-              buttonText2="BUY NFT" // Second button text
-            />
-          </div>
+      {/* Mobile Menu */}
+      <div className="md:hidden text-center mt-4">
+        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+          Menu
+        </button>
+      </div>
 
-          <div className="w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3">
-            <CardComponent
-              cardImage="/cardpic.png" // Example image
-              date="10/05/2024" // Example date
-              tag="#gaming" // Example tag
-              buttonText1="1PAL" // First button text
-              buttonText2="BUY NFT" // Second button text
-            />
-          </div>
-
-          <div className="w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3">
-            <CardComponent
-              cardImage="/fram.png" // Example image
-              date="10/05/2024" // Example date
-              tag="#gaming" // Example tag
-              buttonText1="0.3PAL Remmaining" // First button text
-              buttonText2="BUY NFT" // Second button text
-            />
-          </div>
-
-          <div className="w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3">
-            <CardComponent
-              cardImage="/fram.png" // Example image
-              date="10/05/2024" // Example date
-              tag="#gaming" // Example tag
-              buttonText1="0.3PAL Remmaiming" // First button text
-              buttonText2="BUY NFT" // Second button text
-            />
-          </div>
-          <Image src="/Frame.png" alt="shape" width={165} height={111} style={{ height: "150px", marginTop: "17px" }} />
+      {/* Hero Section */}
+      <div className="relative w-full h-[420px] bg-cover bg-center flex flex-col items-center justify-center text-center" style={{ backgroundImage: "url('bgy.jpeg')" }}>
+        <Image src="/head.png" alt="Header" width={560} height={353} className="mr-[40%] w-[80%] md:mr-[40%] w-[60%] lg:mr-[40%] w-[50%] xl:mr-[43%] w-[40%]" />
+        <Image src="/shape.png" alt="Shape" width={560} height={353} className="w-[40%] md:w-[30%] absolute right-4 md:right-16 lg:right-32 xl:right-48 top-1/2 transform -translate-y-1/2" />
+        <div className="absolute  bottom-8 flex  sm: flex-row gap-4 px-2   w-full px-4 md:px-12 lg: px-4 xl: px-2">
+          <Button type="primary" className="bg-green-600 text-white w-full sm:w-auto px-4 py-2 rounded-md">Mint Your ERC404</Button>
+          <Button className="bg-gray-500 text-white w-full sm:w-auto px-4 py-2 rounded-md">How To Mint?</Button>
         </div>
-        <div>
-          <h1
-            className="text-white ml-5 mt-20 font-extrabold w-[600px] sm:w-full md:w-full lg:w-full xl:w-full"
-          >
-            OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS
-          </h1>
-          <p style={{ width: "100%", fontSize: "16px" }}>
-            Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! This innovative technology allows you to co-own unique digital collectibles with others. Imagine owning a fraction of a famous CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
-          </p>
-        </div>
+      </div>
+
+      {/* Content Section */}
+      <div className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-12">
+        <h1 className="text-white font-extrabold text-2xl md:text-2xl lg:text-2xl">DISCOVER THE LATEST GEMS</h1>
+        <p className="text-white mt-4 text-lg md:text-xl">
+          Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
+        </p>
+      </div>
+
+      {/* Cards Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-5 sm:px-10 md:px-16 lg:px-44 px-22 xl:px-32 mt-10">
+        {[...Array(4)].map((_, i) => (
+          <CardComponent
+            key={i}
+            cardImage={i % 2 === 0 ? "/cardpic.png" : "/fram.png"}
+            date="10/05/2024"
+            tag="#gaming"
+            buttonText1={i % 2 === 0 ? "1PAL" : "0.3PAL Remaining "}
+            buttonText2="BUY NFT"
+          />
+        ))}
+        <Image className="mt-5 ml-10" src="/Frame.png" alt="Frame" width={282} height={496} />
+      </div>
+
+      {/* Footer Text Section */}
+      <div className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-center mt-20">
+        <h1 className="text-white font-extrabold text-3xl md:text-4xl lg:text-5xl">OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS</h1>
+        <p className="text-white mt-4 text-lg md:text-xl">
+          Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
+        </p>
       </div>
     </div>
   );
+
+
+
+
+
+
+
+//   Microsoft Windows [Version 10.0.19045.5487]
+// (c) Microsoft Corporation. All rights reserved.
+
+// C:\Users\123\luxury-vacation>git add .
+
+// C:\Users\123\luxury-vacation>git commit -m "done"
+// [main cf5d32d] done
+//  3 files changed, 148 insertions(+), 79 deletions(-)
+//  create mode 100644 public/Frame.png
+//  create mode 100644 public/fram.png
+
+// C:\Users\123\luxury-vacation>git push -u origin main
+// Enumerating objects: 13, done.
+// Counting objects: 100% (13/13), done.
+// Delta compression using up to 4 threads
+// Compressing objects: 100% (7/7), done.
+// Writing objects: 100% (8/8), 138.39 KiB | 8.65 MiB/s, done.
+// Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+// remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+// To https://github.com/MuhammadKhayam322/Pladin.git
+//    2989112..cf5d32d  main -> main
+// branch 'main' set up to track 'origin/main'.
+
+// C:\Users\123\luxury-vacation>
+
 }

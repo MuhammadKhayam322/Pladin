@@ -6,67 +6,91 @@ import Image from "next/image";
 import CardComponent from "../app/CardComponent/page";
 
 export default function Home() {
-  const [hoveredLink, setHoveredLink] = useState(null);
-
   return (
     <div className="bg-[#00000A] min-h-screen">
       {/* Navigation Bar */}
-      <div className="flex justify-between items-center bg-black px-5 py-6 sm:py-4 md:py-6 lg:py-8 xl:py-10 relative z-20">
-        <Link href="/">
-          <Image src="/PALADINS.png" alt="Logo" width={77} height={22} className="cursor-pointer" />
-        </Link>
-        <div className=" md:flex justify-between gap-8 items-center bg-black px-5 py-6 sm:py-4 md:py-6 lg:py-8 xl:py-10 relativ">
-          {[
-            { name: "Home", path: "/home" },
-            { name: "Mint", path: "/mint" },
-            { name: "Staking", path: "/stacking" },
-            { name: "Account", path: "/Account" },
-          ].map((link) => (
+      <div className="flex justify-between items-center bg-black px-5 py-4 md:py-6 relative z-20">
+        <div className="cursor-pointer">
+          <Link href="/">
+            <Image
+              src="/PALADINS.png"
+              alt="Logo"
+              width={77}
+              height={22}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="hidden md:flex gap-6">
+          {["home", "mint", "staking", "account"].map((item) => (
             <Link
-              key={link.name}
-              href={link.path}
-              className="text-white font-bold transition-colors"
-              style={{ textDecoration: hoveredLink === link.name ? "underline" : "none" }}
-              onMouseEnter={() => setHoveredLink(link.name)}
-              onMouseLeave={() => setHoveredLink(null)}
+              key={item}
+              href={`/${item}`}
+              className="text-white text-sm md:text-base hover:text-gray-300 transition"
             >
-              {link.name}
+              {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>
           ))}
-        </div>
-        <Button type="text" className="text-white bg-gray-700 px-4 py-2 rounded-md flex items-center">
+        </nav>
+
+        {/* Wallet Button */}
+        <Button className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center">
           <Image src="/wallet.png" alt="Wallet" width={15} height={15} className="mr-2" />
           My 404 Wallet
         </Button>
       </div>
 
-      {/* Mobile Menu */}
-      <div className="md:hidden text-center mt-4">
-        <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-          Menu
-        </button>
-      </div>
-
       {/* Hero Section */}
-      <div className="relative w-full h-[420px] bg-cover bg-center flex flex-col items-center justify-center text-center" style={{ backgroundImage: "url('bgy.jpeg')" }}>
-        <Image src="/head.png" alt="Header" width={560} height={353} className="mr-[40%] w-[80%] md:mr-[40%] w-[60%] lg:mr-[40%] w-[50%] xl:mr-[43%] w-[40%]" />
-        <Image src="/shape.png" alt="Shape" width={560} height={353} className="w-[40%] md:w-[30%] absolute right-4 md:right-16 lg:right-32 xl:right-48 top-1/2 transform -translate-y-1/2" />
-        <div className="absolute  bottom-8 flex  sm: flex-row gap-4 px-2   w-full px-4 md:px-12 lg: px-4 xl: px-2">
-          <Button type="primary" className="bg-green-600 text-white w-full sm:w-auto px-4 py-2 rounded-md">Mint Your ERC404</Button>
-          <Button className="bg-gray-500 text-white w-full sm:w-auto px-4 py-2 rounded-md">How To Mint?</Button>
-        </div>
-      </div>
+      <div
+  className="relative w-full min-h-[320px] md:min-h-[420px] flex flex-col items-center justify-center text-center bg-cover bg-center"
+  style={{ backgroundImage: "url('bgy.jpeg')" }}
+>
+  {/* Image Container */}
+  <div className="relative w-full flex flex-col items-center justify-center gap-6 text-center bg-cover bg-center min-h-[420px] px-4 md:px-12">
+  
+  {/* Images Section (Head & Shape) */}
+  <div className="flex flex-col md:flex-row items-center justify-center w-full gap-6">
+    {/* First Image (Head) */}
+    <Image
+      src="/head.png"
+      alt="Header"
+      width={400}
+      height={250}
+      className="w-[70%] sm:w-[50%] md:w-[40%] mx-auto order-2 md:order-1"
+    />
 
+    {/* Second Image (Shape) */}
+    <div className="w-[70%] sm:w-[50%] md:w-[40%] flex justify-center order-1 md:order-2">
+      <Image src="/shape.png" alt="Shape" width={300} height={200} className="w-full" />
+    </div>
+  </div>
+
+  {/* Buttons Section (Aligned with Images) */}
+  <div className="w-[70%] sm:w-[50%] lg:mr-[64%]  md:w-[40%] flex flex-col sm:flex-row items-center justify-center gap-4">
+    <Button className="bg-green-600 text-white w-full sm:w-auto px-4 py-2 rounded-md">
+      Mint Your ERC404
+    </Button>
+    <Button className="bg-gray-500 text-white w-full sm:w-auto px-4 py-2 rounded-md">
+      How To Mint?
+    </Button>
+  </div>
+
+</div>
+</div>
       {/* Content Section */}
-      <div className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-12">
-        <h1 className="text-white font-extrabold text-2xl md:text-2xl lg:text-2xl">DISCOVER THE LATEST GEMS</h1>
-        <p className="text-white mt-4 text-lg md:text-xl">
+      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8 text-center">
+        <h1 className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl">
+          DISCOVER THE LATEST GEMS
+        </h1>
+        <p className="text-white mt-3 text-sm md:text-lg">
           Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
         </p>
-      </div>
+      </section>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-5 sm:px-10 md:px-16 lg:px-44 px-22 xl:px-32 mt-10">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8">
         {[...Array(4)].map((_, i) => (
           <CardComponent
             key={i}
@@ -77,18 +101,22 @@ export default function Home() {
             buttonText2="BUY NFT"
           />
         ))}
-        <Image className="mt-5 ml-10" src="/Frame.png" alt="Frame" width={282} height={496} />
-      </div>
+      </section>
 
-      {/* Footer Text Section */}
-      <div className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-center mt-20">
-        <h1 className="text-white font-extrabold text-3xl md:text-4xl lg:text-5xl">OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS</h1>
-        <p className="text-white mt-4 text-lg md:text-xl">
+      {/* Footer Section */}
+      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-center mt-12">
+        <h1 className="text-white font-extrabold text-xl md:text-3xl lg:text-4xl">
+          OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS
+        </h1>
+        <p className="text-white mt-3 text-sm md:text-lg">
           Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
         </p>
-      </div>
+      </section>
     </div>
   );
+}
+
+
 
 
 
@@ -121,4 +149,4 @@ export default function Home() {
 
 // C:\Users\123\luxury-vacation>
 
-}
+

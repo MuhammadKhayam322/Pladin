@@ -22,10 +22,10 @@ const CardComponent = ({ cardImage, date, tag, buttonText1, buttonText2 }) => {
       <h1 className="text-gray-400 ml-5 text-sm mt-1">{tag}</h1>
 
       {/* First Button */}
-      <div>
+      <div className=' flex justify-start'>
       <Button
         type="text"
-        className="bg-gray-700 text-white ml-5 mt-4 px-4 py-2  "
+        className="bg-gray-700 text-white ml-[34px] mt-4  "
       >
         {buttonText1}
       </Button> 
@@ -33,14 +33,14 @@ const CardComponent = ({ cardImage, date, tag, buttonText1, buttonText2 }) => {
      
 
       {/* Horizontal Line */}
-      <hr className="w-3/4 border-gray-500 my-4" />
+      <hr className="w-3/4 border-gray-500 my-4 ml-8" />
 
       {/* Second Button */}
-      <div className='h-12'>
+      <div className='flex justify-center'>
       <Button
         type="primary"
-        className="bg-gray-700 text-white px-2 py-2 rounded-md w-[200px] ml-5 md:ml-[-10px] w-[100px] "
-      >
+        className="bg-gray-700 text-white rounded-md  w-[250px] mb-10 md: w-[100px]  "
+     >
         {buttonText2}
       </Button> 
       </div>

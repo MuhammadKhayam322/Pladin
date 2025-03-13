@@ -58,18 +58,18 @@ export default function Home() {
       alt="Header"
       width={400}
       height={250}
-      className="w-[70%] sm:w-[50%] md:w-[40%] mx-auto order-2 md:order-1"
+      className="w-[70%] sm:w-[50%] sm:ml-[220px] md:w-[40%] mx-auto order-2 md:order-1 md:ml-[-35px] lg:ml-[-35px]"
     />
 
     {/* Second Image (Shape) */}
-    <div className="w-[70%] sm:w-[50%] md:w-[40%] flex justify-center order-1 md:order-2">
+    <div className="w-[70%] sm:w-[40%] md:w-[30%] flex justify-center order-1 md:order-2">
       <Image src="/shape.png" alt="Shape" width={300} height={200} className="w-full" />
     </div>
   </div>
 
   {/* Buttons Section (Aligned with Images) */}
-  <div className="w-[70%] sm:w-[50%] lg:mr-[64%]  md:w-[40%] flex flex-col sm:flex-row items-center justify-center gap-4">
-    <Button className="bg-green-600 text-white w-full sm:w-auto px-4 py-2 rounded-md">
+  <div className="w-[70%]  sm:w-[50%] lg:mr-[54%]  md:w-[40%]  flex flex-col sm:flex-row items-center justify-center gap-4">
+    <Button type="primary" className=" text-white w-full sm:w-auto px-4 py-2 rounded-md">
       Mint Your ERC404
     </Button>
     <Button className="bg-gray-500 text-white w-full sm:w-auto px-4 py-2 rounded-md">
@@ -80,17 +80,17 @@ export default function Home() {
 </div>
 </div>
       {/* Content Section */}
-      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8 text-center">
+      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8 text-start">
         <h1 className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl">
           DISCOVER THE LATEST GEMS
         </h1>
         <p className="text-white mt-3 text-sm md:text-lg">
-          Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
+        Explore the Freshest Additions to Our Growing Collection of Unique NFTs. Each Piece Tells a Story.
         </p>
       </section>
 
       {/* Cards Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10  md:px-16 lg:px-24 xl:px-32 mt-8">
         {[...Array(4)].map((_, i) => (
           <CardComponent
             key={i}
@@ -104,13 +104,22 @@ export default function Home() {
       </section>
 
       {/* Footer Section */}
-      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-center mt-12">
-        <h1 className="text-white font-extrabold text-xl md:text-3xl lg:text-4xl">
+      <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-start mt-12">
+        <h1 className="text-white font-extrabold text-xl md:text-3xl lg:text-2xl">
           OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS
         </h1>
-        <p className="text-white mt-3 text-sm md:text-lg">
-          Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! Own a fraction of a CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
-        </p>
+        <p className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[90%] xl:w-[52%] text-white mt-3 text-sm md:text-[17px] ">
+  Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! This innovative technology allows you to co-own unique digital collectibles with others. Imagine owning a fraction of a famous CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
+</p>
+
+      </section>
+      <section>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+  <Image src="/Frame1.png" width={400} height={100} className="w-[80%] sm:w-[30%] md:w-[28%] lg:w-[28%]" />
+  <Image src="/Frame2.png" width={400} height={100} className="w-[80%] sm:w-[30%] md:w-[28%] lg:w-[28%]" />
+  <Image src="/Frame3.png" width={400} height={100} className="w-[80%] sm:w-[30%] md:w-[28%] lg:w-[28%]" />
+</div>
+
       </section>
     </div>
   );

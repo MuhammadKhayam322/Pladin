@@ -58,7 +58,7 @@ export default function Home() {
       alt="Header"
       width={400}
       height={250}
-      className="w-[70%] sm:w-[50%] sm:ml-[220px] md:w-[40%] mx-auto order-2 md:order-1 md:ml-[-35px] lg:ml-[-35px]"
+      className="w-[70%] sm:w-[50%] sm:ml-[220px] md:w-[40%] mx-auto order-2 md:order-1 md:ml-[-25px] lg:ml-[-20px]"
     />
 
     {/* Second Image (Shape) */}
@@ -68,7 +68,7 @@ export default function Home() {
   </div>
 
   {/* Buttons Section (Aligned with Images) */}
-  <div className="w-[70%]  sm:w-[50%] lg:mr-[54%]  md:w-[40%]  flex flex-col sm:flex-row items-center justify-center gap-4">
+  <div className="w-[70%]  sm:w-[50%] lg:ml-[-62%]  md:w-[40%]  flex flex-col sm:flex-row sm:ml-[5%] gap-4">
     <Button type="primary" className=" text-white w-full sm:w-auto px-4 py-2 rounded-md">
       Mint Your ERC404
     </Button>
@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* Cards Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10  md:px-16 lg:px-24 xl:px-32 mt-8">
+      <section className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10  md:px-16 lg:px-24 xl:px-32 mt-8 xsm:grid-cols-1 justify-center">
         {[...Array(4)].map((_, i) => (
           <CardComponent
             key={i}

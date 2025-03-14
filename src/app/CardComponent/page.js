@@ -4,15 +4,15 @@ import { Button } from 'antd';
 
 const CardComponent = ({ cardImage, date, tag, buttonText1, buttonText2 }) => {
   return (
-    <div className="max-w-xs rounded-lg bg-gray-800  mt-5 ">
+    <div className="max-w-xs rounded-lg bg-gray-800  mt-5 md:felx justify-center ">
       {/* Image Section */}
       <Image
         src={cardImage}
         alt="Card"
         width={760}
         height={289}
-        className="rounded-t-lg  w-[400px]"
-      />
+        className="rounded-t-lg  w-[400px] sm:felx justify-center"
+      /> 
 
       {/* Secondary Image */}
       <Image src="/pladn.png" alt="pladn" width={182} height={24} className="mt-3 ml-6 sm:ml-2" />

@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Button } from "antd";
 import Image from "next/image";
 import CardComponent from "../app/CardComponent/page";
-
+import { usePathname } from "next/navigation";
 export default function Home() {
+  const pathname = usePathname();
   return (
     <div className="bg-[#00000A] min-h-screen">
  
@@ -24,16 +25,25 @@ export default function Home() {
 
    
         <nav className="hidden md:flex gap-6">
-          {["home", "mint", "staking", "account"].map((item) => (
-            <Link
-              key={item}
-              href={`/${item}`}
-              className="text-white text-sm md:text-base hover:text-gray-300 transition"
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </Link>
-          ))}
-        </nav>
+      {["home", "mint", "staking", "account"].map((item) => {
+        const isActive = pathname === `/${item}` || (item === "home" && pathname === "/");
+
+        return (
+         <Link
+  key={item}
+  href="/"
+  className={`relative text-sm md:text-base transition ${
+    isActive
+      ? "text-yellow-300 before:content-[''] before:absolute before:-bottom-2before:left-0 before:w-full before:h-[2px] before:bg-yellow-300"
+      : "text-white hover:text-yellow-300 hover:before:content-[''] hover:before:absolute hover:before:-bottom-2 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-yellow-300"
+  }`}
+>
+  {item.charAt(0).toUpperCase() + item.slice(1)}
+</Link>
+
+        );
+      })}
+    </nav>
 
        
         <Button className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center">
@@ -83,7 +93,7 @@ export default function Home() {
         <h1 className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl">
           DISCOVER THE LATEST GEMS
         </h1>
-        <p className="text-white mt-3 text-sm md:text-lg">
+        <p className="text-[#9E9898] mt-3 text-sm md:text-lg">
         Explore the Freshest Additions to Our Growing Collection of Unique NFTs. Each Piece Tells a Story.
         </p>
       </section>
@@ -107,7 +117,7 @@ export default function Home() {
         <h1 className="text-white font-extrabold text-xl md:text-3xl lg:text-2xl">
           OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS
         </h1>
-        <p className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[90%] xl:w-[52%] text-white mt-3 text-sm md:text-[17px] ">
+        <p className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[90%] xl:w-[52%] text-[#9E9898] mt-3 text-sm md:text-[17px] ">
   Ever wanted to own a piece of a valuable digital asset, but the price tag felt out of reach? ERC-404 NFTs change the game! This innovative technology allows you to co-own unique digital collectibles with others. Imagine owning a fraction of a famous CryptoPunk or a rare piece of digital art. ERC-404 makes it possible!
 </p>
 
@@ -120,6 +130,39 @@ export default function Home() {
 </div>
 
       </section>
+      <section className="flex flex-wrap justify-between px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-12 bg-[#00000A] text-white">
+  <div className="max-w-sm">
+    <Image src="/PALADINS.png" alt="Logo" width={177} height={122} className="cursor-pointer" />
+    <p className="mt-8 text-[17px] text-[#9E9898] ">
+      Lorem ipsum dolor sit amet consectetur. Non curabitur egestas quis in gravida parturient lacinia lacus.
+    </p>
+    <Image src="/immg.png" alt="Image" width={177} height={122} className="cursor-pointer mt-8" />
+    <p className="mt-8 text-[#9E9898] text-sm">© 2024 PALADINS, all rights reserved</p>
+  </div>
+
+  <div className="mt-8 sm:mt-0">
+    <h2 className="font-bold mb-4">Products</h2>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+  </div>
+
+  <div className="mt-8 sm:mt-0">
+    <h2 className="font-bold mb-4">Contact Us</h2>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+  </div>
+
+  <div className="mt-8 sm:mt-0 ">
+    <h2 className="font-bold mb-4 ">About</h2>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+    <p className="mb-2 text-[#9E9898]">Footer Item</p>
+  </div>
+</section>
+
+            
     </div>
   );
 }

@@ -15,7 +15,7 @@ const CardComponent = ({ cardImage, date, tag, buttonText1, buttonText2 }) => {
       /> 
 
       {/* Secondary Image */}
-      <Image src="/pladn.png" alt="pladn" width={182} height={24} className="mt-3 ml-6 sm:ml-2" />
+      <Image src="/pladn.png" alt="pladn" width={182} height={24} className="mt-3 ml-2 w-[200px] sm:ml-2" />
 
       {/* Date and Tag Section */}
       <h1 className="text-white ml-5 text-sm mt-2">{date}</h1>

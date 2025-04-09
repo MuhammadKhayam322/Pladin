@@ -8,7 +8,7 @@ import CardComponent from "../app/CardComponent/page";
 export default function Home() {
   return (
     <div className="bg-[#00000A] min-h-screen">
-      {/* Navigation Bar */}
+ 
       <div className="flex justify-between items-center bg-black px-5 py-4 md:py-6 relative z-20">
         <div className="cursor-pointer">
           <Link href="/">
@@ -22,7 +22,7 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+   
         <nav className="hidden md:flex gap-6">
           {["home", "mint", "staking", "account"].map((item) => (
             <Link
@@ -35,14 +35,14 @@ export default function Home() {
           ))}
         </nav>
 
-        {/* Wallet Button */}
+       
         <Button className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center">
           <Image src="/wallet.png" alt="Wallet" width={15} height={15} className="mr-2" />
           My 404 Wallet
         </Button>
       </div>
 
-      {/* Hero Section */}
+    
       <div
   className="relative w-full min-h-[320px] md:min-h-[420px] flex flex-col items-center justify-center text-center bg-cover bg-center"
   style={{ backgroundImage: "url('bgy.jpeg')" }}
@@ -50,9 +50,9 @@ export default function Home() {
   {/* Image Container */}
   <div className="relative w-full flex flex-col items-center justify-center gap-6 text-center bg-cover bg-center min-h-[420px] px-4 md:px-12">
   
-  {/* Images Section (Head & Shape) */}
+  
   <div className="flex flex-col md:flex-row items-center justify-center w-full gap-6">
-    {/* First Image (Head) */}
+
     <Image
       src="/head.png"
       alt="Header"
@@ -61,13 +61,12 @@ export default function Home() {
       className="w-[70%] sm:w-[50%] sm:ml-[220px] md:w-[40%] mx-auto order-2 md:order-1 md:ml-[-25px] lg:ml-[-20px]"
     />
 
-    {/* Second Image (Shape) */}
     <div className="w-[70%] sm:w-[40%] md:w-[30%] flex justify-center order-1 md:order-2">
       <Image src="/shape.png" alt="Shape" width={300} height={200} className="w-full" />
     </div>
   </div>
 
-  {/* Buttons Section (Aligned with Images) */}
+ 
   <div className="w-[70%]  sm:w-[50%] lg:ml-[-62%]  md:w-[40%]  flex flex-col sm:flex-row sm:ml-[5%] gap-4">
     <Button type="primary" className=" text-white w-full sm:w-auto px-4 py-2 rounded-md">
       Mint Your ERC404

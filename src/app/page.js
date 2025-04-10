@@ -5,6 +5,7 @@ import { Button } from "antd";
 import Image from "next/image";
 import CardComponent from "../app/CardComponent/page";
 import { usePathname } from "next/navigation";
+import Navbar from "./component/page";
 export default function Home() {
   const pathname = usePathname();
   return (
@@ -24,26 +25,7 @@ export default function Home() {
         </div>
 
    
-        <nav className="hidden md:flex gap-10">
-      {["home", "mint", "staking", "account"].map((item) => {
-        const isActive = pathname === `/${item}` || (item === "home" && pathname === "/");
-
-        return (
-         <Link
-  key={item}
-  href="/"
-  className={`relative text-sm md:text-base transition ${
-    isActive
-      ? "text-yellow-300 before:content-[''] before:absolute before:-bottom-7 before:left-0 before:w-full before:h-[2px] before:bg-yellow-300"
-      : "text-white hover:text-yellow-300 hover:before:content-[''] hover:before:absolute hover:before:-bottom-7 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-yellow-300"
-  }`}
->
-  {item.charAt(0).toUpperCase() + item.slice(1)}
-</Link>
-
-        );
-      })}
-    </nav>
+       <Navbar/>
      
        
         <Button className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center">
@@ -51,7 +33,7 @@ export default function Home() {
           My 404 Wallet
         </Button>
       </div>
-<hr className="border-t border-gray-700 mb-7" />
+<hr className="border-t border-gray-700 mb-3" />
     
       <div
   className="relative w-full min-h-[320px] md:min-h-[420px] flex flex-col items-center justify-center text-center bg-cover bg-center"

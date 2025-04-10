@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { Button } from "antd";
 import Image from "next/image";
 import CardComponent from "../app/CardComponent/page";

@@ -1,4 +1,4 @@
-import { MenuUnfoldOutlined } from "@ant-design/icons"; // Ensure you have this package installed
+import { MenuUnfoldOutlined } from "@ant-design/icons"; 
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -30,9 +30,8 @@ const NavbarLinks = ({ links = [], pathname = "/" }) => {
         })}
       </div>
 
-      {/* Mobile Menu with BorderTopOutlined Icon */}
       <div className="sm:hidden flex items-center">
-        {/* Use BorderTopOutlined icon to show menu */}
+       
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white hover:text-yellow-300"
@@ -46,7 +45,7 @@ const NavbarLinks = ({ links = [], pathname = "/" }) => {
           )}
         </button>
 
-        {/* Mobile Dropdown Menu */}
+      
         {menuOpen && (
           <div className="absolute top-16 right-0 w-48 bg-white shadow-md z-50 p-4 space-y-4">
             {links.map((item) => {

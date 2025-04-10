@@ -41,14 +41,13 @@ export default function Home() {
     backgroundImage: "url('bgy.jpeg')",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
-   backgroundSize: "cover", // or "contain"
+   backgroundSize: "cover", 
     backgroundPosition: "center",
     justifyContent: "center",
     width: "100%",
     borderRadius: "10px",
   }}
 >
-  {/* Image Container */}
   <div className="relative w-full flex flex-col items-center justify-center gap-6 text-center bg-cover bg-center min-h-[420px] px-4 md:px-12">
   
   
@@ -79,7 +78,6 @@ export default function Home() {
 
 </div>
 </div>
-      {/* Content Section */}
       <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 mt-8 text-start">
         <h1 className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl">
           DISCOVER THE LATEST GEMS
@@ -89,7 +87,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Cards Section */}
+     
       <section className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-5 sm:px-10  md:px-16 lg:px-24 xl:px-32 mt-8 xsm:grid-cols-1 justify-center">
         {[...Array(4)].map((_, i) => (
           <CardComponent
@@ -103,7 +101,7 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Footer Section */}
+     
       <section className="px-5 sm:px-10 md:px-16 lg:px-24 xl:px-32 text-start mt-12">
         <h1 className="text-white font-extrabold text-xl md:text-3xl lg:text-2xl">
           OWN A PIECE OF HISTORY: INTRODUCING ERC-404 NFTS

@@ -24,7 +24,7 @@ export default function Home() {
         </div>
 
    
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-10">
       {["home", "mint", "staking", "account"].map((item) => {
         const isActive = pathname === `/${item}` || (item === "home" && pathname === "/");
 
@@ -34,8 +34,8 @@ export default function Home() {
   href="/"
   className={`relative text-sm md:text-base transition ${
     isActive
-      ? "text-yellow-300 before:content-[''] before:absolute before:-bottom-2before:left-0 before:w-full before:h-[2px] before:bg-yellow-300"
-      : "text-white hover:text-yellow-300 hover:before:content-[''] hover:before:absolute hover:before:-bottom-2 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-yellow-300"
+      ? "text-yellow-300 before:content-[''] before:absolute before:-bottom-7 before:left-0 before:w-full before:h-[2px] before:bg-yellow-300"
+      : "text-white hover:text-yellow-300 hover:before:content-[''] hover:before:absolute hover:before:-bottom-7 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-yellow-300"
   }`}
 >
   {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -44,18 +44,27 @@ export default function Home() {
         );
       })}
     </nav>
-
+     
        
         <Button className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center">
           <Image src="/wallet.png" alt="Wallet" width={15} height={15} className="mr-2" />
           My 404 Wallet
         </Button>
       </div>
-
+<hr className="border-t border-gray-700 mb-7" />
     
       <div
   className="relative w-full min-h-[320px] md:min-h-[420px] flex flex-col items-center justify-center text-center bg-cover bg-center"
-  style={{ backgroundImage: "url('bgy.jpeg')" }}
+  style={{
+    backgroundImage: "url('bgy.jpeg')",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+   backgroundSize: "cover", // or "contain"
+    backgroundPosition: "center",
+    justifyContent: "center",
+    width: "100%",
+    borderRadius: "10px",
+  }}
 >
   {/* Image Container */}
   <div className="relative w-full flex flex-col items-center justify-center gap-6 text-center bg-cover bg-center min-h-[420px] px-4 md:px-12">
@@ -137,7 +146,7 @@ export default function Home() {
       Lorem ipsum dolor sit amet consectetur. Non curabitur egestas quis in gravida parturient lacinia lacus.
     </p>
     <Image src="/immg.png" alt="Image" width={177} height={122} className="cursor-pointer mt-8" />
-    <p className="mt-8 text-[#9E9898] text-sm">© 2024 PALADINS, all rights reserved</p>
+    
   </div>
 
   <div className="mt-8 sm:mt-0">
@@ -160,7 +169,15 @@ export default function Home() {
     <p className="mb-2 text-[#9E9898]">Footer Item</p>
     <p className="mb-2 text-[#9E9898]">Footer Item</p>
   </div>
+  
 </section>
+<div className="mt-8 sm:ml-[115px] px-8 sm:px-0">
+  <p className="text-[#9E9898] text-sm text-center sm:text-left">
+    © 2024 PALADINS, all rights reserved
+  </p>
+</div>
+
+
 
             
     </div>
